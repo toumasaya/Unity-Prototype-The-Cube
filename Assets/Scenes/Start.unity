@@ -491,8 +491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a78a7454f0a4800bc469520aa31be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startBg: {fileID: 1489676200}
-  _endBg: {fileID: 0}
+  _points: {fileID: 11400000, guid: b6b3b16f5f9594012b7795ad1ed5715a, type: 2}
+  _pointsText: {fileID: 0}
 --- !u!1 &1838844120
 GameObject:
   m_ObjectHideFlags: 0

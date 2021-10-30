@@ -6,18 +6,25 @@ using UnityEngine.SceneManagement;
 public class UIControll : MonoBehaviour
 {
     Scene _scene;
-    // Start is called before the first frame update
+    public PointsVariable _points;
+
     void Start()
     {
         _scene = SceneManager.GetActiveScene();
     }
 
+    void Update() {
+
+    }
+
     public void StartGame () {
+        // Reset points
+        _points.value = 0;
         SceneManager.LoadScene(1);
     }
 
     public void ExitGame () {
-        Application.Quit();
+        // Application.Quit();
+        SceneManager.LoadScene(0);
     }
-
 }
