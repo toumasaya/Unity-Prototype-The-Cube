@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         } else if (other.gameObject.CompareTag("Finish")) {
             // If trigger finish, go to next level, and stopping player physics
             _rigidBody.isKinematic = true;
+            StartCoroutine(GoNextLevel());
         }
     }
 
@@ -50,8 +51,18 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene(_activeScene.buildIndex);
     }
 
+    // Load next scene
+    void LoadNextScene () {
+        SceneManager.LoadScene(_activeScene.buildIndex + 1);
+    }
+
     IEnumerator RestartCurrentLevel () {
         yield return new WaitForSeconds(1);
         LoadCurrentScene();
+    }
+
+    IEnumerator GoNextLevel () {
+        yield return new WaitForSeconds(1);
+        LoadNextScene();
     }
 }
