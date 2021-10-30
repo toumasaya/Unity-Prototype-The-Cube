@@ -30,12 +30,18 @@ public class Player : MonoBehaviour
         if (_getPositionY < -1) {
             StartCoroutine(RestartCurrentLevel());
         }
+
+
     }
 
-    // If colliding enemy, restart current scene
+
     void OnCollisionEnter(Collision other) {
         if (other.gameObject.CompareTag("Enemy")) {
+            // If colliding enemy, restart current scene
             StartCoroutine(RestartCurrentLevel());
+        } else if (other.gameObject.CompareTag("Finish")) {
+            // If trigger finish, go to next level, and stopping player physics
+            _rigidBody.isKinematic = true;
         }
     }
 
