@@ -701,11 +701,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Base
       objectReference: {fileID: 0}
+    - target: {fileID: 2688628912666221416, guid: 0c6411bc6afd4494aae1116260c9dcb8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4430025078384056868, guid: 0c6411bc6afd4494aae1116260c9dcb8, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 725691076}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2688628912666221416, guid: 0c6411bc6afd4494aae1116260c9dcb8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0c6411bc6afd4494aae1116260c9dcb8, type: 3}
 --- !u!1001 &4620455927809811452
 PrefabInstance:

@@ -125,5 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fa64e1c53a1490c858a3f50ce28aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _totalPoints: {fileID: 11400000, guid: b6b3b16f5f9594012b7795ad1ed5715a, type: 2}
+  _currentPoints: {fileID: 11400000, guid: 256aae90028d74309a8ffb88fae562f8, type: 2}
   _forwardSpeed: 10
   _horizontalSpeed: 10
