@@ -6,14 +6,12 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     Rigidbody _rigidBody;
-    Scene _activeScene;
     [SerializeField] float _forwardSpeed = 10;
     [SerializeField] float _horizontalSpeed = 10;
 
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
-        _activeScene = SceneManager.GetActiveScene();
     }
 
     void FixedUpdate() {
@@ -28,7 +26,7 @@ public class Player : MonoBehaviour
 
         // If falling, restart the current scene
         if (_getPositionY < -1) {
-            StartCoroutine(RestartCurrentLevel());
+            SceneController.instance.StartCoroutine("RestartCurrentLevel");
         }
 
 
@@ -38,32 +36,12 @@ public class Player : MonoBehaviour
     void OnCollisionEnter(Collision other) {
         if (other.gameObject.CompareTag("Enemy")) {
             // If colliding enemy, restart current scene
-            // StartCoroutine(RestartCurrentLevel());
+            SceneController.instance.StartCoroutine("RestartCurrentLevel");
         } else if (other.gameObject.CompareTag("Finish")) {
             // If trigger finish, go to next level, and stopping player physics
             _rigidBody.isKinematic = true;
             Points.instance.CalculateTotalPoints();
-            // StartCoroutine(GoNextLevel());
+            SceneController.instance.StartCoroutine("GoNextLevel");
         }
-    }
-
-    // Load current scene
-    void LoadCurrentScene () {
-        SceneManager.LoadScene(_activeScene.buildIndex);
-    }
-
-    // Load next scene
-    void LoadNextScene () {
-        SceneManager.LoadScene(_activeScene.buildIndex + 1);
-    }
-
-    IEnumerator RestartCurrentLevel () {
-        yield return new WaitForSeconds(1);
-        LoadCurrentScene();
-    }
-
-    IEnumerator GoNextLevel () {
-        yield return new WaitForSeconds(1);
-        LoadNextScene();
     }
 }
